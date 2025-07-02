@@ -69,9 +69,9 @@ export default function Footer() {
       </div>
 
    
-      <div className='bg-gray-300 py-4 mt-10 text-center text-xs text-gray-600'>
+      <div className='py-4 mt-10 text-center text-xs text-gray-600'>
         <p>
-          &copy; Copyright © 2022 Shopify Theme Developed by MassTechnologist. All rights reserved.
+          &copy; Copyright © 2022 Shopify Theme Developed by MassTechnologist All rights reserved.
         </p>
       </div>
     </footer>
