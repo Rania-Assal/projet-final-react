@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+
 
 import carousel1 from '../assets/images/carousel1.jpg'
 import carousel2 from '../assets/images/carousel2.jpg'
@@ -66,14 +68,34 @@ export default function Home() {
                 <div key={index} className="min-w-full h-[600px] relative">
                   <img src={slide.image} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white px-4 text-center gap-4">
-                    <p className="mb-4 text-3xl">{slide.paragraph}</p>
-                    <h1 className="text-7xl font-bold mb-2">{slide.title}</h1>
-                    <button
+                    <motion.p
+                      className="mb-4 text-3xl"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      {slide.paragraph}
+                    </motion.p>
+
+                    <motion.h1
+                      className="text-7xl font-bold mb-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      {slide.title}
+                    </motion.h1>
+
+                    <motion.button
                       onClick={() => navigate('/shop')}
                       className="bg-white text-black hover:bg-orange-600 px-9 py-2 rounded-3xl transition"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
                     >
                       {slide.button}
-                    </button>
+                    </motion.button>
+
                   </div>
                 </div>
               ))}
@@ -180,40 +202,40 @@ export default function Home() {
         </div>
       </section>
 
-     <section className=' bg-gray-100 py-12 px-4 '>
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className=' bg-gray-100 py-12 px-4 '>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <div className="relative bg-white overflow-hidden group">
-      <img
-        src={banner}
-        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/30 text-center px-4">
-        <h3 className="text-lg font-medium mb-1">The Beauty</h3>
-        <h2 className="text-4xl md:text-5xl font-bold mb-2">LOOKBOOK</h2>
-        <p className="text-sm tracking-widest">VIEW COLLECTION</p>
-      </div>
-    </div>
-
-    <div className="bg-white p-6 flex flex-col items-center justify-center text-center group">
-      <img
-        src={banner2}
-        className="w-48 h-48 object-contain mb-4 transform transition-transform duration-500 group-hover:scale-110"
-      />
-      <h3 className="text-lg mb-2">Boxy2 T-Shirt with Roll Sleeve</h3>
-      <p className="text-xl font-semibold mb-4">£14.58</p>
-
-      <div className="flex gap-2">
-        {['days', 'hrs', 'mins', 'secs'].map((label, i) => (
-          <div key={i} className="border px-4 py-2 text-sm">
-            <p className="font-medium text-lg">-2375</p>
-            <span className="text-gray-500">{label}</span>
+          <div className="relative bg-white overflow-hidden group">
+            <img
+              src={banner}
+              className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/30 text-center px-4">
+              <h3 className="text-lg font-medium mb-1">The Beauty</h3>
+              <h2 className="text-4xl md:text-5xl font-bold mb-2">LOOKBOOK</h2>
+              <p className="text-sm tracking-widest">VIEW COLLECTION</p>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+
+          <div className="bg-white p-6 flex flex-col items-center justify-center text-center group">
+            <img
+              src={banner2}
+              className="w-48 h-48 object-contain mb-4 transform transition-transform duration-500 group-hover:scale-110"
+            />
+            <h3 className="text-lg mb-2">Boxy2 T-Shirt with Roll Sleeve</h3>
+            <p className="text-xl font-semibold mb-4">£14.58</p>
+
+            <div className="flex gap-2">
+              {['days', 'hrs', 'mins', 'secs'].map((label, i) => (
+                <div key={i} className="border px-4 py-2 text-sm">
+                  <p className="font-medium text-lg">-2375</p>
+                  <span className="text-gray-500">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
     </>
   )

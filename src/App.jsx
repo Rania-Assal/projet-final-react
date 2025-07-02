@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar'
+import Button from './Components/Button'
 import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import Shop from './Pages/Shop'
@@ -32,7 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-
+      <Button />
       <Footer />
     </>
   )
