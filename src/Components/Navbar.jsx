@@ -1,47 +1,62 @@
 import React from 'react'
-import { Link } from "react-router"
-
-
-
+import { NavLink } from 'react-router-dom'
+import { CgProfile } from "react-icons/cg";
+import { BsCart3 } from "react-icons/bs";
 
 export default function Navbar() {
   return (
+    <nav className="fixed top-0 w-full bg-white shadow-lg z-10 p-5 flex items-center justify-between">
+      <div className="flex items-center">
+        <h1 className="text-[30px] italic text-5xl font-bold cursor-pointer">
+          Fashe<span className="text-red-600">.</span>
+        </h1>
+      </div>
 
-    <>
-      <nav className=' z-10 fixed top-0 p-7 flex flex-col bg-white w-full shadow-lg'>
-        <ul className='flex items-center justify-center gap-7 '>
-          <h1 className='text-[30px] italic text-5xl font-bold'>Fashe<span className='text-red-600'>.</span></h1>
+     
+      <ul className="flex items-center gap-8">
+        {[
+          { to: '/', label: 'Home' },
+          { to: '/shop', label: 'Shop' },
+          { to: '/sale', label: 'Sale' },
+          { to: '/features', label: 'Features' },
+          { to: '/blog', label: 'Blog' },
+          { to: '/about', label: 'About' },
+          { to: '/contact', label: 'Contact' },
+        ].map(({ to, label }) => (
+          <li key={to}>
+            <NavLink
+              to={to}
+              className={({ isActive }) =>
+                `hover:text-amber-500 relative py-1 ${
+                  isActive ? 'text-amber-500 font-semibold after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-amber-500' : ''
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
 
-          <Link className='hover:text-amber-500' to={{ pathname: '/' }}>
-            <li>Home</li>
-          </Link>
+      <div className="flex items-center gap-6">
+        <NavLink
+          to="/profile"
+          className="flex items-center gap-1 hover:text-amber-500 cursor-pointer text-3xl"
+          aria-label="Profile"
+        >
+        <CgProfile />
+       
+        </NavLink>
 
-          <Link className='hover:text-amber-500' to={{ pathname: '/Shop' }}>
-            <li>Shop</li>
-          </Link>
-
-          <Link className='hover:text-amber-500' to={{ pathname: '/Sale' }}>
-            <li>Sale</li>
-          </Link>
-
-          <Link className='hover:text-amber-500' to={{ pathname: '/Features' }}>
-            <li>Features</li>
-          </Link>
-
-          <Link className='hover:text-amber-500' to={{ pathname: '/Blog' }}>
-            <li>Blog</li>
-          </Link>
-
-          <Link className='hover:text-amber-500' to={{ pathname: '/About' }}>
-            <li>About</li>
-          </Link>
-
-          <Link className='hover:text-amber-500' to={{ pathname: '/Contact' }}>
-            <li>Contact</li>
-          </Link>
-
-        </ul>
-      </nav>
-    </>
+        <NavLink
+          to="/cart"
+          className="flex items-center gap-1 hover:text-amber-500 cursor-pointer text-3xl"
+        
+        >
+         <BsCart3 />
+         
+        </NavLink>
+      </div>
+    </nav>
   )
 }

@@ -20,6 +20,9 @@ import shopy5 from '../assets/images/shopy5.webp'
 import shopy6 from '../assets/images/shopy6.webp'
 import shopy7 from '../assets/images/shopy7.webp'
 import shopy8 from '../assets/images/shopy8.webp'
+import banner from '../assets/images/banner.jpg'
+import banner2 from '../assets/images/banner2.jpg'
+
 
 const slides = [
   { image: carousel1, paragraph: 'Women collection 2018', title: 'NEW ARRIVALS', button: 'Shop now' },
@@ -176,6 +179,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+     <section className=' bg-gray-100 py-12 px-4 '>
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div className="relative bg-white overflow-hidden group">
+      <img
+        src={banner}
+        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/30 text-center px-4">
+        <h3 className="text-lg font-medium mb-1">The Beauty</h3>
+        <h2 className="text-4xl md:text-5xl font-bold mb-2">LOOKBOOK</h2>
+        <p className="text-sm tracking-widest">VIEW COLLECTION</p>
+      </div>
+    </div>
+
+    <div className="bg-white p-6 flex flex-col items-center justify-center text-center group">
+      <img
+        src={banner2}
+        className="w-48 h-48 object-contain mb-4 transform transition-transform duration-500 group-hover:scale-110"
+      />
+      <h3 className="text-lg mb-2">Boxy2 T-Shirt with Roll Sleeve</h3>
+      <p className="text-xl font-semibold mb-4">£14.58</p>
+
+      <div className="flex gap-2">
+        {['days', 'hrs', 'mins', 'secs'].map((label, i) => (
+          <div key={i} className="border px-4 py-2 text-sm">
+            <p className="font-medium text-lg">-2375</p>
+            <span className="text-gray-500">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
     </>
   )
 }

@@ -10,6 +10,9 @@ import Features from './Pages/Features'
 import Blog from './Pages/Blog'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
+import ProfilePage from './Pages/ProfilePage'
+
+
 
 
 function App() {
@@ -27,6 +30,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
 
       <Footer />

@@ -50,7 +50,7 @@ export default function Footer() {
 
            <div className='flex flex-col gap-3'>
             <p className='font-bold'>NEWSLETTER</p>
-            <input className='border-none'  type="text" value={""} placeholder='Email Adress' name='contact[email]' id='subscribe_email' required='' aria-label='Email address' autoCorrect='off' autoCapitalize='off' />
+            <input className='border-none'  type="text" placeholder='Email Adress' name='contact[email]' id='subscribe_email' required='' aria-label='Email address' autoCorrect='off' autoCapitalize='off' />
 
             <button className='bg-black text-white rounded-3xl p-3'>Subscribe</button>
           </div>
